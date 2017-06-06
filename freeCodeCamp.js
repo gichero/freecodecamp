@@ -66,9 +66,19 @@ function repeatStringNumTimes(str, num){
     if (num-1 < 0){
         return "";
     }
-
     else{
         return str + repeatStringNumTimes(str, num -1);
     }
 }
 repeatStringNumTimes("abc", 4);
+
+//repeat method
+
+function repeatStringNumTimes(str, num){
+    if (num > 0){
+        return str.repeat(num);
+    }else{
+        return "";
+    }
+}
+repeatStringNumTimes("abc", 3);
