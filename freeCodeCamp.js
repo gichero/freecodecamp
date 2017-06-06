@@ -56,6 +56,19 @@ function repeatStringNumTimes(str, num){
         strRpt += str;
         num --;
     }
-    return strRpt;    
+    return strRpt;
 }
 repeatStringNumTimes("abc", 3);
+
+//recursively
+
+function repeatStringNumTimes(str, num){
+    if (num-1 < 0){
+        return "";
+    }
+
+    else{
+        return str + repeatStringNumTimes(str, num -1);
+    }
+}
+repeatStringNumTimes("abc", 4);
