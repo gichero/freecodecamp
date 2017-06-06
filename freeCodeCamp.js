@@ -46,3 +46,16 @@ function titleCase(str) {
 }).join(" ");
   }
 titleCase("the path of the righteous man is beset");
+
+
+//Repeat a string repeat a string
+function repeatStringNumTimes(str, num){
+    var strRpt = '';
+
+    while(num > 0){
+        strRpt += str;
+        num --;
+    }
+    return strRpt;    
+}
+repeatStringNumTimes("abc", 3);
