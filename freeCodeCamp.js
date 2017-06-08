@@ -132,7 +132,18 @@ function mutation(arr) {
     if (value === -1){
       return false;
     }
-  } 
+  }
   return true;
 }
 mutation(["hello", "hey"]);
+
+//Falsy Bouncer
+function bouncer(arr) {
+
+  return arr.filter(function(item){
+
+      return item;
+
+  });
+}
+bouncer([7, "ate", "", false, 9]);
