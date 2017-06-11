@@ -154,6 +154,19 @@ function destroyer(arr) {
   var args = Array.from(arguments).slice(1);
   return arr.filter(function(val) {
     return !args.includes(val);
-  }); 
+  });
 }
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+//Reverse array
+function reverseArr(arr){
+  var newArr = [];
+  for(var i= 0; i < arr.length; i++){
+    newArr.push((arr[arr.length-1-i]));
+    }
+    return newArr;
+  }
+  reverseArr([1, 2, 3, 4, 5]);
+
+  //Where do I belong
+  
