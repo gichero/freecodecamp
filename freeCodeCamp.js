@@ -174,3 +174,31 @@ function reverseArr(arr){
  return arr.concat(num).sort((a,b) => a-b).indexOf(num);
 }
 getIndexToIns([40, 60], 50);
+
+//caesars cipher
+//advanced code
+function rot13(str) { // LBH QVQ VG!
+  return str.replace(/[A-Z]/g, L => String.fromCharCode((L.charCodeAt(0) % 26) + 65));
+}
+
+//basic caesars cipher
+function rot13(str) {
+
+  return str.split('')
+
+    .map.call(str, function(char) {
+
+      x = char.charCodeAt(0);
+
+      if (x < 65 || x > 90) {
+        return String.fromCharCode(x);
+      }
+
+      else if (x < 78) {
+        return String.fromCharCode(x + 13);
+      }
+
+      return String.fromCharCode(x - 13);
+    }).join('');
+
+}
