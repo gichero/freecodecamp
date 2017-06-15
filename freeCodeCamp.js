@@ -264,3 +264,28 @@ function rot13(str) {
     }).join('');
 
 }
+
+//Sum all numbers in a range
+function sumAll(arr) {
+
+  var max = Math.max(arr[0], arr[1]);
+  var min = Math.min(arr[0], arr[1]);
+  var sum = 0;
+
+  for(var i = min; i <= max; i++){
+    sum +=i;
+  }
+  return sum;
+}
+sumAll([1, 4]);
+
+//Diff Two Arrays
+function diffArr(arr1, arr2){
+  return arr1.concat(arr2).filter(arr =>
+    !arr1.includes(arr) || !arr2.includes(arr)
+  )
+
+  }
+
+  diffArr([1,2,3,4],[1,2,3,4,5]);
+  
