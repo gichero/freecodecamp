@@ -8,6 +8,28 @@
 // }
 // reverseString("hello");
 //
+//Reverse Array
+function reverseArray(arr){
+  var newArr = [];
+
+  for (var i = arr.length-1; i>=0; i--){
+    newArr += arr[i];
+    }
+
+    return newArr;
+  }
+  reverseArray([1,2,3,4,5]);
+
+  //Reverse String
+function reverseString(str){
+      var newStr = "";
+      for (var i = str.length-1; i>=0; i--){
+          newStr +=str[i];
+      }
+      return newStr;
+  }
+reverseString("believe");
+
 // //factorialize a number
 // function factorialize(num) {
 //   if (num < 0)
@@ -18,16 +40,46 @@
 //     return(num * factorialize(num-1));
 // }
 // factorialize(5);
-//
+
+//factorize a number using for loop
+
+function factorialize(num){
+    if(num === 0 || or num === 1){
+        return 1;
+    }
+
+    for (var i=num-1; i>=1; i--){
+        num = num * i;
+    }
+    return num;
+}
+factorialize(6);
 // //check for palindromes
-// function palindrome(str) {
-//   var re = /[\W_]/g;
-//   var lowRegStr = str.toLowerCase().replace(re, '');
-//   var reverseStr = lowRegStr.split('').reverse().join('');
-//   return reverseStr === lowRegStr;
-// }
-// palindrome("eye");
-//
+function palindrome(str) {
+  var re = /[\W_]/g;
+  var lowRegStr = str.toLowerCase().replace(re, '');
+  var reverseStr = lowRegStr.split('').reverse().join('');
+  return reverseStr === lowRegStr;
+}
+palindrome("eye");
+
+//check for palindromes using for  loop
+function palindrome(str){
+	  var strRe = /[\W_]/g;
+
+	  str = str.toLowerCase().replace(strRe, "");
+
+  for(var i = 0;  i < str.length/2; i++){
+
+	    if(str[i] !== str[str.length-1-i]){
+	      return false;
+	      }
+	  }
+	      return true;
+
+	  }
+	  palindrome("wows");
+
 // //find the longest word
 // function findLongestWord(str) {
 //   var arrayStr = str.split(' ');
@@ -167,6 +219,16 @@ function reverseArr(arr){
     return newArr;
   }
   reverseArr([1, 2, 3, 4, 5]);
+
+  //or just simply do
+  function reverseArray(arr){
+      var newArr = [];
+      for(var i=arr.length-1; i>=0; i--){
+          newArr += arr;
+      }
+      return newArr;
+  }
+  reverseArray([1,2,3,4,5]);
 
   //Where do I belong
   function getIndexToIns(arr, num) {
