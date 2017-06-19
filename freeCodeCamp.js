@@ -348,3 +348,20 @@ function whatIsInAName(collection, source) {
 }
 
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+//Search and replace
+function myReplace(str, before, after) {
+
+  var index = str.indexOf(before);
+
+  if (str[index] === str[index].toUpperCase()){
+
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  }
+
+  str = str.replace(before, after);
+
+  return str;
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "brown", "black");
