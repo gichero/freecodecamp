@@ -367,3 +367,18 @@ function myReplace(str, before, after) {
 myReplace("A quick brown fox jumped over the lazy dog", "brown", "black");
 
 //pig latin
+function translatePigLatin(str){
+    var vowel = /[aeiou]/gi;
+    var pigLatin = "";
+
+    //check if first character is a vowel
+    if(str[0].match(vowel)){
+        pigLatin = str + "way";
+    }else{
+        var vowelIndex = str.indexOf(str.match(vowel)[0]);
+
+        pigLatin = str.substr(vowelIndex)+str.substr(0,vowelIndex) + "ay";
+    }
+    return pigLatin;
+}
+translatePigLatin("unmitigated");
