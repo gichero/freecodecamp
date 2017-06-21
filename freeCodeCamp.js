@@ -382,3 +382,20 @@ function translatePigLatin(str){
     return pigLatin;
 }
 translatePigLatin("unmitigated");
+
+//dna pairing
+function pairElement(str) {
+
+  return str.split("").map(function (dna) {
+    if (dna === "A") {
+      return ["A", "T"];
+  } else  if (dna === "T") {
+      return ["T", "A"];
+  } else if (dna === "C") {
+      return ["C", "G"];
+    } else {
+      return ["G", "C"];
+    }
+  });
+}
+pairElement("GCG");
