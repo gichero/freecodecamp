@@ -399,3 +399,23 @@ function pairElement(str) {
   });
 }
 pairElement("GCG");
+
+//missing letter
+function fearNotLetter(str){
+    var letters = "abcdefghijklmnopqrstuvwxyz";
+    letter = letter.split("");
+    str = str.split("");
+
+    for (var i = 0; i < str.length; i++){
+
+        if(str[0] != "a"){
+            return undefined
+        }
+
+        if (str[i] != letter[i]){
+            return letter[i];
+        }
+    }
+    return str;
+}
+fearNotLetter("abcdf");
