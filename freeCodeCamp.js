@@ -403,7 +403,7 @@ pairElement("GCG");
 //missing letter
 function fearNotLetter(str){
     var letters = "abcdefghijklmnopqrstuvwxyz";
-    letter = letter.split("");
+    letters = letters.split("");
     str = str.split("");
 
     for (var i = 0; i < str.length; i++){
@@ -412,10 +412,23 @@ function fearNotLetter(str){
             return undefined
         }
 
-        if (str[i] != letter[i]){
-            return letter[i];
+        if (str[i] != letters[i]){
+            return letters[i];
         }
     }
     return str;
 }
 fearNotLetter("abcdf");
+
+// Boo Who
+function booWho(bool) {
+
+  if (typeof(bool) === "boolean"){
+
+    return true;
+  }else{
+    return false;
+  }
+}
+
+booWho(null);
