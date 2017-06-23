@@ -30,16 +30,16 @@ function reverseString(str){
   }
 reverseString("believe");
 
-// //factorialize a number
-// function factorialize(num) {
-//   if (num < 0)
-//     return -1;
-//   if (num === 0)
-//     return 1;
-//   else
-//     return(num * factorialize(num-1));
-// }
-// factorialize(5);
+// factorialize a number
+function factorialize(num) {
+  if (num < 0)
+    return -1;
+  if (num === 0)
+    return 1;
+  else
+    return(num * factorialize(num-1));
+}
+factorialize(5);
 
 //factorize a number using for loop
 
@@ -432,3 +432,24 @@ function booWho(bool) {
 }
 
 booWho(null);
+
+//Sorted Union
+function uniteUnique(arr){
+
+  var uniteArr = [];
+
+  for (var i = 0; i < arguments.length; i++){
+
+       for(var j = 0; j < arguments[i].length; j++){
+
+           if(uniteArr.indexOf(arguments[i][j])===-1){
+               uniteArr.push(arguments[i][j]);
+           }
+
+       }
+
+  }
+  return uniteArr;
+
+  }
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
