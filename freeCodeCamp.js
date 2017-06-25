@@ -472,3 +472,12 @@ function convertHTML(str) {
 
 // test here
 convertHTML("Dolce & Gabbana");
+
+//Spinal Tap case
+function spinalCase(str) {
+  str = str.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+
+  return str.replace(/\s|_/g, '-');
+}
+
+spinalCase('This Is Spinal Tap');
