@@ -481,3 +481,30 @@ function spinalCase(str) {
 }
 
 spinalCase('This Is Spinal Tap');
+
+//Sum All Odd Fibonacci Numbers....This took forever!!!
+function sumFibs(num){
+
+  var fib = [1, 1];
+
+  Array.prototype.current = function(){
+    return this[this.length-1];
+    };
+
+  Array.prototype.previous = function(){
+    return this[this.length-2];
+    };
+
+  while(fib.previous()+fib.current() <= num){
+    fib.push(fib.previous()+fib.current());
+    }
+
+  return fib.filter(function(item){
+    return item % 2 !== 0;
+    }).reduce(function(a, b){
+      return a + b;
+      });
+
+
+  }
+  sumFibs(21);
