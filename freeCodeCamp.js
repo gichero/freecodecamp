@@ -505,6 +505,29 @@ function sumFibs(num){
       return a + b;
       });
 
-
   }
   sumFibs(21);
+
+  //Sum all Primes ...works on python studio not freeCodeCamp
+  function sumPrimes(num){
+
+  var primes = [];
+  for(var i = 2; i<= num; i++){
+    if(isPrime(i)){
+      primes.push(i);
+      }
+    }
+    primes.reduce(function(a, b){
+      return a + b;
+      });
+}
+
+  function isPrime(num){
+    for(var j=2; j<num; j++){
+      if(num % j === 0){
+        return false;
+        }
+      }
+      return true;
+    }
+    sumPrimes(10);
