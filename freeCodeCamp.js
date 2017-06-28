@@ -1,13 +1,15 @@
 //reverse a string
-// function reverseString(str) {
-//     //use three methods
-//     //first split the string using the split method. do not include spaces between the quotes. this makes sure that every letter is split.
-//     //reverse the string using the reverse method. This method reverses the order of the string from last to first.
-//     //lastly join the string. This method joins the reversed string that was previously inverted using the reverse method.
-//   return str.split("").reverse().join("");
-// }
-// reverseString("hello");
-//
+
+//use three methods
+//first split the string using the split method. do not include spaces between the quotes. this makes sure that every letter is split.
+//reverse the string using the reverse method. This method reverses the order of the string from last to first.
+//lastly join the string. This method joins the reversed string that was previously inverted using the reverse method.
+function reverseString(str) {
+
+  return str.split("").reverse().join("");
+}
+reverseString("hello");
+
 //Reverse Array
 function reverseArray(arr){
   var newArr = [];
@@ -44,7 +46,7 @@ factorialize(5);
 //factorize a number using for loop
 
 function factorialize(num){
-    if(num === 0 || or num === 1){
+    if(num === 0 || num === 1){
         return 1;
     }
 
@@ -54,7 +56,8 @@ function factorialize(num){
     return num;
 }
 factorialize(6);
-// //check for palindromes
+
+//check for palindromes
 function palindrome(str) {
   var re = /[\W_]/g;
   var lowRegStr = str.toLowerCase().replace(re, '');
@@ -80,15 +83,15 @@ function palindrome(str){
 	  }
 	  palindrome("wows");
 
-// //find the longest word
-// function findLongestWord(str) {
-//   var arrayStr = str.split(' ');
-//   var longWrd = arrayStr.sort(function(a, b){
-//     return b.length - a.length;
-//   });
-//   return longWrd[0].length;
-// }
-// findLongestWord("The quick brown fox jumped over the lazy dog");
+//find the longest word
+function findLongestWord(str) {
+  var arrayStr = str.split(' ');
+  var longWrd = arrayStr.sort(function(a, b){
+    return b.length - a.length;
+  });
+  return longWrd[0].length;
+}
+findLongestWord("The quick brown fox jumped over the lazy dog");
 
 // Title case a sentence
 function titleCase(str) {
@@ -521,7 +524,6 @@ function sumFibs(num){
       return a + b;
       });
 }
-
   function isPrime(num){
     for(var j=2; j<num; j++){
       if(num % j === 0){
