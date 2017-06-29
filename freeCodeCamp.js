@@ -267,7 +267,7 @@ function rot13(str) {
     }).join('');
 
 }
-
+//intermediate algorithms
 //Sum all numbers in a range
 function sumAll(arr) {
 
@@ -309,33 +309,11 @@ function diffArr(arr1, arr2){
     }
   }
   return romanized;
-
 }
-
 convertToRoman(99);
-function convertToRoman(num) {
 
-  var romanNumerals = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V",   "IV", "I"];
-  var decimals = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-
-  var romanized = "";
-
-  for (var i = 0; i < decimals.length; i++){
-
-    while (decimals[i] <= num){
-
-      romanized += romanNumerals[i];
-      num -= decimals[i];
-    }
-  }
-  return romanized;
-
-}
-
-convertToRoman(99);
 
  //Wherefore art thou
-
 function whatIsInAName(collection, source) {
 
   var arr = collection.filter(function(item){
@@ -433,7 +411,6 @@ function booWho(bool) {
     return false;
   }
 }
-
 booWho(null);
 
 //Sorted Union
@@ -448,12 +425,9 @@ function uniteUnique(arr){
            if(uniteArr.indexOf(arguments[i][j])===-1){
                uniteArr.push(arguments[i][j]);
            }
-
        }
-
   }
   return uniteArr;
-
   }
   uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
@@ -472,7 +446,6 @@ function convertHTML(str) {
     return htmlEntities[entity] || entity;
   }).join('');
 }
-
 // test here
 convertHTML("Dolce & Gabbana");
 
@@ -511,7 +484,7 @@ function sumFibs(num){
   }
   sumFibs(21);
 
-  //Sum all Primes ...works on python studio not freeCodeCamp
+  //Sum all Primes
   function sumPrimes(num){
 
   var primes = [];
@@ -520,7 +493,7 @@ function sumFibs(num){
       primes.push(i);
       }
     }
-    primes.reduce(function(a, b){
+    return primes.reduce(function(a, b){
       return a + b;
       });
 }
@@ -534,23 +507,18 @@ function sumFibs(num){
     }
     sumPrimes(10);
 
-    //smallest common multiple ...this took 2 days
-    function smallestCommons(arr) {
+//smallest common multiple ...this took 2 days...there is an infinite loop
+function smallestCommons(arr) {
 
  var low = Math.min(arr[0],arr[1]);
  var high = Math.max(arr[0],arr[1]);
  var range = [];
+ var lcm = 0;
+ var flag = true;
 
-  for (var i = low; i<= high; i++){
-    range.push(i);
-    }
-
-    var lcm = 0;
-    var flag = true;
-
-    while(flag){
-      lcm++;
-      for(var j = low; j<=high; j++){
+while(flag){
+    lcm++;
+    for(var j = low; j<=high; j++){
         if(lcm % j !== 0){
           break;
           }else if(j === high){
@@ -561,3 +529,18 @@ function sumFibs(num){
       return lcm;
 }
 smallestCommons([1,5]);
+
+//Finder Keepers
+function findElement(arr, func) {
+
+  var num = 0;
+
+  for (var i = 0; i < arr.length; i++){
+    if(func(arr[i])){
+      num = arr[i];
+      return num; // the return statement breaks after it gets the first even number returning 8
+    }
+  }
+  //if the return num; statement is here it breaks after it gets to the end of the array, returning 10 
+}
+findElement([1, 3, 5, 8, 9, 10], function(num){ return num % 2 === 0; });
