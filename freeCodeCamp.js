@@ -541,6 +541,20 @@ function findElement(arr, func) {
       return num; // the return statement breaks after it gets the first even number returning 8
     }
   }
-  //if the return num; statement is here it breaks after it gets to the end of the array, returning 10 
+  //if the return num; statement is here it breaks after it gets to the end of the array, returning 10
 }
 findElement([1, 3, 5, 8, 9, 10], function(num){ return num % 2 === 0; });
+
+//Drop it ....does not work // Whyyy!!!!
+function dropElements(arr, func) {
+
+  for (var i = 0; i < arr.length; i++) {
+    if (func(arr[0])) {
+      break;
+    } else {
+      arr.shift();
+    }
+  }
+  return arr;
+}
+dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
