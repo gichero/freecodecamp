@@ -533,3 +533,31 @@ function sumFibs(num){
       return true;
     }
     sumPrimes(10);
+
+    //smallest common multiple ...this took 2 days
+    function smallestCommons(arr) {
+
+ var low = Math.min(arr[0],arr[1]);
+ var high = Math.max(arr[0],arr[1]);
+ var range = [];
+
+  for (var i = low; i<= high; i++){
+    range.push(i);
+    }
+
+    var lcm = 0;
+    var flag = true;
+
+    while(flag){
+      lcm++;
+      for(var j = low; j<=high; j++){
+        if(lcm % j !== 0){
+          break;
+          }else if(j === high){
+            flag = false;
+            }
+        }
+      }
+      return lcm;
+}
+smallestCommons([1,5]);
