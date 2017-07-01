@@ -559,3 +559,19 @@ function dropElements(arr, func) {
   return arr;
 }
 dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
+
+//sides of a triangle
+function triangles(n1, n2, n3) {
+    function isInvalid(n) {
+        return typeof n !== 'number';
+    }
+
+    if(isInvalid(n1) || isInvalid(n2) || isInvalid(n3)) throw new TypeError('Not a number');
+
+    var len = Object.keys([n1, n2, n3].reduce((a,b) => { a[b] = (a[b] || 0) + 1; return a; }, {})).length;
+
+    return len === 3 ? 'Scalene' :
+           len === 2 ? 'Isosceles' : 'Equilateral';
+}
+
+triangles(2, 3);
