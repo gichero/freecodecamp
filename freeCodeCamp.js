@@ -545,10 +545,11 @@ function findElement(arr, func) {
 }
 findElement([1, 3, 5, 8, 9, 10], function(num){ return num % 2 === 0; });
 
-//Drop it ....does not work // Whyyy!!!!
+//Drop it ....works with the times var // Whyyy!!!!
 function dropElements(arr, func) {
 
-  for (var i = 0; i < arr.length; i++) {
+    var times = arr.length;
+  for (var i = 0; i < times; i++) {
     if (func(arr[0])) {
       break;
     } else {
