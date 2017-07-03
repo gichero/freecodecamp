@@ -611,4 +611,14 @@ var arr2 = [1];
 console.log(getMaxProfit(arr1));
 // returns 6 (buying for $5 and selling for $11)
 
-//
+//count occurences in a string
+function count(params, str){
+  var count = 0
+  for (var i = 0; i<str.length; i++){
+    if(str[i] === params){
+      count++
+      }
+    }
+    return count;
+  }
+  count("s","sessions");
