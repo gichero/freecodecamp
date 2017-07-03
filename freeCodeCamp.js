@@ -622,3 +622,20 @@ function count(params, str){
     return count;
   }
   count("s","sessions");
+
+  //find duplicates in an array
+  function duplicates(arr){
+  var dup = [];
+  var obj = {};
+  for (var i =0; i<arr.length; i++){
+    if(!obj[arr[i]]){
+      obj[arr[i]] = 1;
+      }else{
+        //obj([arr[i]]);
+        dup.push([arr[i]]);
+        }
+    }
+    //return obj;
+    return dup;
+  }
+  duplicates([1, 5, 3, 5, 3, 2, 4]);
