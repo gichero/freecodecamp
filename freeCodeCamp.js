@@ -561,7 +561,6 @@ function dropElements(arr, func) {
 dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
 
 //sides of a triangle
-
 function triangles(n1, n2, n3) {
     function isInvalid(n) {
         return typeof n !== 'number';
@@ -680,3 +679,14 @@ function count(params, str){
     return dup;
   }
   duplicates([1, 5, 3, 5, 3, 2, 4]);
+
+  //Merge Cookies from interviewcake.com
+  function mergeArr(arr1, arr2){
+  
+  return arr1.concat(arr2).sort(function(a,b){
+    return a - b;
+    });
+
+  }
+mergeArr( [3, 4, 6, 10, 11, 15], [1, 5, 8, 12, 14, 19]);
+// logs [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
