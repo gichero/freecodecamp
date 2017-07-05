@@ -624,6 +624,7 @@ function count(params, str){
   count("s","sessions");
 
   //find duplicates in an array
+  //use object instead of nested double loop because the time complexity would be larger
   function duplicates(arr){
   var dup = [];
   var obj = {};
