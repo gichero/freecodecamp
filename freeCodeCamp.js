@@ -594,6 +594,28 @@ isTriangle(3, 3, 4);
 
 }
 
+//sides of a triangle 3 using conditionals
+function isTriangle(side1, side2, side3){
+
+  function isInvalid(side) {
+        return typeof side !== 'number';
+    }
+
+    if(isInvalid(side1) || isInvalid(side2) || isInvalid(side3)) throw new TypeError('Not a number');
+
+  if (side1 === side2 && side2 === side3){
+    return 'equilateral';
+    }
+    if(side1 === side2 || side1 === side3 || side2 === side3){
+      return 'isosceles';
+      }
+      else{
+        return 'scalene';
+        }
+  }
+isTriangle('string',4,4);
+
+
 //Selling stock to make a profit
 function getMaxProfit(arr) {
 	var minIdx = 0;
