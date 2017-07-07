@@ -549,7 +549,9 @@ findElement([1, 3, 5, 8, 9, 10], function(num){ return num % 2 === 0; });
 function dropElements(arr, func) {
 
     var times = arr.length;
+    //use the variable times because the array is fixed and does not lessen by one when arr.shift is used
   for (var i = 0; i < times; i++) {
+
     if (func(arr[0])) {
       break;
     } else {
@@ -588,9 +590,7 @@ function isTriangle(side1, side2, side3){
   (side1 === side2 || side1 === side3 || side2 === side3) && 'isosceles' ||
   'scalene';
 }
-
 isTriangle(3, 3, 4);
-
 }
 
 //sides of a triangle 3 using conditionals
@@ -638,9 +638,7 @@ function getMaxProfit(arr) {
                 maxIdx = i;
             	minIdx = currMin;
         }
-
     }
-
     maxProfit  = arr[maxIdx] - arr[minIdx];
     return maxProfit;
 }
@@ -682,11 +680,30 @@ function count(params, str){
 
   //Merge Cookies from interviewcake.com
   function mergeArr(arr1, arr2){
-  
+
   return arr1.concat(arr2).sort(function(a,b){
     return a - b;
     });
-
   }
 mergeArr( [3, 4, 6, 10, 11, 15], [1, 5, 8, 12, 14, 19]);
 // logs [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
+
+//streamroller
+function steamrollArray(arr){
+
+   var mergeArr = [];
+
+   function flatten(arr){
+
+    arr.forEach(function(item){
+      if(!Array.isArray(item)){
+        mergeArr.push(item);
+        }else{
+          flatten(item);
+          }
+      });
+   }
+   flatten(arr);
+   return mergeArr;
+}
+steamrollArray([1, [2], [3, [[4]]]]);
