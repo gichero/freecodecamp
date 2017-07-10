@@ -294,14 +294,14 @@ function dropElements(arr, func) {
 dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
 
 //sides of a triangle
-function triangles(n1, n2, n3) {
-    function isInvalid(n) {
-        return typeof n !== 'number';
+function triangles(side1, side2, side3) {
+    function isInvalid(side) {
+        return typeof side !== 'number';
     }
 
-    if(isInvalid(n1) || isInvalid(n2) || isInvalid(n3)) throw new TypeError('Not a number');
+    if(isInvalid(side1) || isInvalid(side2) || isInvalid(side3)) throw new TypeError('Not a number');
 
-    var len = Object.keys([n1, n2, n3].reduce((a,b) => { a[b] = (a[b] || 0) + 1; return a; }, {})).length;
+    var len = Object.keys([side1, side2, side3].reduce((a,b) => { a[b] = (a[b] || 0) + 1; return a; }, {})).length;
 
     return len === 3 ? 'Scalene' :
            len === 2 ? 'Isosceles' : 'Equilateral';
@@ -316,6 +316,8 @@ function isTriangle(side1, side2, side3){
     }
 
     if(isInvalid(side1) || isInvalid(side2) || isInvalid(side3)) throw new TypeError('Not a number');
+
+    if(side1 + side2 <= side3 || side2 + side3 <= side1 || side3 + side1 <= side2) throw new TypeError("cannot exist");
 
      return (side1 === side2 && side2 === side3) && 'equilateral' ||
   (side1 === side2 || side1 === side3 || side2 === side3) && 'isosceles' ||
@@ -442,12 +444,20 @@ steamrollArray([1, [2], [3, [[4]]]]);
 //Binary agents
 function binaryAgent(str) {
   binStr = str.split(' ');
-  word = [];
+  sentence = [];
 
   for(var i =0; i < binStr.length; i++){
-      word.push(String.fromCharCode(parseInt(binStr[i], 2)));
+
+      sentence.push(String.fromCharCode(parseInt(binStr[i], 2))); // the 2 tells which base the numbers are.
   }
-  return word.join('');
+  return sentence.join('');
 }
 
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+function binaryAgent(str) {
+  return String.fromCharCode(...str.split(" ").map(function(char)
+  { return parseInt(char, 2); }));
+}
+// test here
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
