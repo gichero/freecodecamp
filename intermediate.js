@@ -326,26 +326,43 @@ function isTriangle(side1, side2, side3){
 isTriangle(3, 3, 4);
 }
 
-//sides of a triangle 3 using conditionals
+//sides of a triangle 3 using conditionals refactored
+function isEquilateral(side1, side2, side3){
+    return side1 === side2 && side2 === side3;
+}
+function isIsosceles(side1, side2, side3){
+    return side1 === side2 || side1 === side3 || side2 === side3;
+}
+function isNumber(side) {
+    return typeof side !== 'number';
+}
+function isValid(side){
+    return side <= 0;
+}
+function triangleInequality(side1, side2, side3){
+    return side1 + side2 <= side3 || side2 + side3 <= side1 || side3 + side1 <= side2;
+}
+
 function isTriangle(side1, side2, side3){
 
-  function isInvalid(side) {
-        return typeof side !== 'number';
-    }
+    if(isNumber(side1) || isNumber(side2) || isNumber(side3)) throw new TypeError("Not a number");
 
-    if(isInvalid(side1) || isInvalid(side2) || isInvalid(side3)) throw new TypeError('Not a number');
+    if(isValid(side1) || isValid(side2) || isValid(side3)) throw new TypeError("Side cannot be 0 or less")
 
-  if (side1 === side2 && side2 === side3){
-    return 'equilateral';
+    if(triangleInequality(side1, side2, side3)) throw new TypeError("Triangle inequality error");
+
+    if (isEquilateral(side1, side2, side3)){
+    return "Equilateral";
     }
-    if(side1 === side2 || side1 === side3 || side2 === side3){
-      return 'isosceles';
+    if(isIsosceles(side1, side2, side3)){
+      return "Isosceles";
       }
       else{
-        return 'scalene';
+        return "Scalene";
         }
   }
-isTriangle('string',4,4);
+//test
+isTriangle(3,4,4);
 
 
 //Selling stock to make a profit
