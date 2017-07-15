@@ -517,3 +517,24 @@ function addTogether(){
         }
 }
 addTogether(2,3);
+
+//Argument optional solution 2
+function addTogether(){
+    var check = function(num){
+        return typeof num === "number" ? num : undefined;
+    };
+    var a = check(argument[0]);
+    var b = check(argument[1]);
+    if(arguments.length === 2){
+        return a && b ? a + b : undefined;
+    }else{
+        if(a){
+            return function(nextArg){
+                return a && check(nextArg) ? a + nextArg : undefined;
+            };
+        }else{
+            return undefined;
+        }
+    }
+}
+addTogether(2)(3);
