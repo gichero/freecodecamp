@@ -500,16 +500,21 @@ truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "ma
 
 //Arguments optional
 function addTogether(){
+    //Create an array that slices arguments on each param
     var params = [].slice.call(arguments);
+    //check if every param part is a number by iterating through with a function, if it isn't returning undefined
     if(!params.every(function(param){
         return typeof param === "number";
     })){
         return undefined;
     }
+    //if array has two values add them together
         if (params.length === 2){
             return params[0] + params[1];
         }else{
+            //store the first parameter
             var firstParam = params[0];
+            //store a function that will take in the second parameter and using recursion call itself to add the values
             var addOneMore = function(secondParam){
                 return addTogether(firstParam, secondParam);
             };
