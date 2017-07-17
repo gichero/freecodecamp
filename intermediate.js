@@ -443,8 +443,9 @@ function steamrollArray(arr){
 
     var mergeArr = []; //empty array which will form new array
 
+    //helper function
     function flatten(arr){
-
+        //loop
         arr.forEach(function(item){
             if(!Array.isArray(item)){
                 mergeArr.push(item); // if not an array push to mergeArr
@@ -460,21 +461,23 @@ steamrollArray([1, [2], [3, [[4]]]]);
 
 //Binary agents
 function binaryAgent(str) {
-  binStr = str.split(' ');
-  sentence = [];
-
-  for(var i =0; i < binStr.length; i++){
-
-      sentence.push(String.fromCharCode(parseInt(binStr[i], 2))); // the 2 tells which base the numbers are.
-  }
-  return sentence.join('');
+    //split binary string into words or rather the binary that form a word. create empty sentence array.
+    binStr = str.split(' ');
+    sentence = [];
+    //loop through str aka binStr
+    for(var i =0; i < binStr.length; i++){
+        //convert binary to string
+        sentence.push(String.fromCharCode(parseInt(binStr[i], 2))); // the 2 tells which base the numbers are.
+    }
+    return sentence.join('');
 }
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
 
+//Binary agents (advanced solution)
 function binaryAgent(str) {
-  return String.fromCharCode(...str.split(" ").map(function(char)
-  { return parseInt(char, 2); }));
+    return String.fromCharCode(...str.split(" ").map(function(char)
+    { return parseInt(char, 2); }));
 }
 // test here
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
