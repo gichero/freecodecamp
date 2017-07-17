@@ -466,13 +466,20 @@ function binaryAgent(str) {
     sentence = [];
     //loop through str aka binStr
     for(var i =0; i < binStr.length; i++){
-        //convert binary to string
+        //convert binary to string. String.fromCharCode() method returns a string created by using the specified sequence of Unicode values.
         sentence.push(String.fromCharCode(parseInt(binStr[i], 2))); // the 2 tells which base the numbers are.
     }
     return sentence.join('');
 }
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+//Binary agents mr Snow
+function binaryAgent(str){
+
+    return str.split(' ').map(function(binary){
+        return String.fromCharCode(parseInt(binary, 2));
+    }).join('');
+}
 
 //Binary agents (advanced solution)
 function binaryAgent(str) {
