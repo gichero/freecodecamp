@@ -481,17 +481,19 @@ binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 0110
 
 //Everything be true
 function truthCheck(collection, pre) {
-  var arr = [];
-  for (var i=0; i< collection.length; i++){
-    if(!collection[i][pre]){
-      arr.push(collection[i]);
-
+    //create empty array
+    var arr = [];
+    //loop through collection array
+    for (var i=0; i< collection.length; i++){
+        //conditional compares item in collection array with pre and pushes to empty array arr[] if pre has no match
+        if(!collection[i][pre]){
+            arr.push(collection[i]);
+        }
     }
-  }
-  if(arr.length === 0){
-    return true;
-  }else{
-    return false;
+    if(arr.length === 0){
+        return true;
+    }else{
+        return false;
   }
 
 }
