@@ -459,20 +459,20 @@ function steamrollArray(arr){
 }
 steamrollArray([1, [2], [3, [[4]]]]);
 
-//Binary agents
+//Binary agents (does not run on python studio)
 function binaryAgent(str) {
     //split binary string into words or rather the binary that form a word. create empty sentence array.
     binStr = str.split(' ');
-    sentence = [];
+    word = [];
     //loop through str aka binStr
     for(var i =0; i < binStr.length; i++){
         //convert binary to string. String.fromCharCode() method returns a string created by using the specified sequence of Unicode values.
-        sentence.push(String.fromCharCode(parseInt(binStr[i], 2))); // the 2 tells which base the numbers are.
+        word.push(String.fromCharCode(parseInt(binStr[i], 2))); // the 2 tells which base the numbers are.
     }
-    return sentence.join('');
+    return word.join('');
 }
-
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
 //Binary agents mr Snow
 function binaryAgent(str){
 
@@ -486,7 +486,6 @@ function binaryAgent(str) {
     return String.fromCharCode(...str.split(" ").map(function(char)
     { return parseInt(char, 2); }));
 }
-// test here
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
 
 //Everything be true
