@@ -554,3 +554,44 @@ function addTogether(){
     }
 }
 addTogether(2)(3);
+
+//Second largest element in a binary search tree
+function secondLargestBinary(){
+    //define largest and 2nd largest elements as dummy nodes
+  var largest = {
+    value:null,
+    };
+    var secondLargest = {
+      value:null,
+      };
+      //define inner function that takes node as parameter
+      function search(node){
+          //if current node is greater than largest node
+        if(node.value > largest.value){
+            //set 2nd largest equal to largest
+          secondLargest = largest;
+          //set current node equal to the largest
+          largest = node;
+          //else if current node is greater than 2nd largest
+          }else if(node.value > secondLargest.value){
+              //set 2nd largest equal to current value
+            secondLargest = node;
+            }
+            //base case
+            //if current value has no child nodes
+            if(!node.left && !node.right){
+              return
+            }
+            //recursive case
+            //if current node has a right node
+              if(node.right){
+                  //search right node
+                search(node.right);
+                }else{
+                  search(node.left);
+                  }
+        };
+        //call search with the root node as the argument
+        search(this.root);
+        return secondLargest;
+}
