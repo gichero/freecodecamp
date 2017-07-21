@@ -1,5 +1,7 @@
 /* Binary Search Tree */
-
+//FreeCodeCamp code from youTube by Beau
+//This example code helped me understand Binary Search Tree data structures
+//I wrote the code for finding the second maximum number in the tree.
 class Node {
     //class represents each node in the tree
   constructor(data, left = null, right = null) {
@@ -45,6 +47,20 @@ class BST {
       return searchTree(node);
     }
   }
+  find2ndMax(){
+      let previous = null;
+      let current =this.root;
+      while(current.right !==null){
+          previous = current;
+          current = current.right;
+      }
+      if(current.left !==null){
+          return current.left.data;
+      }else{
+          return previous.data;
+      }
+  }
+
   findMin() {
     let current = this.root;
     while (current.left !== null) {
@@ -228,16 +244,16 @@ bst.add(22);
 bst.add(5);
 bst.add(7);
 bst.add(20);
-
-console.log(bst.findMinHeight());
-console.log(bst.findMaxHeight());
-console.log(bst.isBalanced());
-bst.add(10);
-console.log(bst.findMinHeight());
-console.log(bst.findMaxHeight());
-console.log(bst.isBalanced());
-console.log('inOrder: ' + bst.inOrder());
-console.log('preOrder: ' + bst.preOrder());
-console.log('postOrder: ' + bst.postOrder());
-
-console.log('levelOrder: ' + bst.levelOrder());
+console.log(bst.find2ndMax());
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// bst.add(10);
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// console.log('inOrder: ' + bst.inOrder());
+// console.log('preOrder: ' + bst.preOrder());
+// console.log('postOrder: ' + bst.postOrder());
+//
+// console.log('levelOrder: ' + bst.levelOrder());
