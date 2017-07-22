@@ -62,6 +62,7 @@ factorialize(6);
 function palindrome(str) {
     //regular expression matches any non-word character. Equivalent to [^A-Za-z0-9_].
   var re = /[\W_]/g;
+  //The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.
   var lowRegStr = str.toLowerCase().replace(re, '');
   var reverseStr = lowRegStr.split('').reverse().join('');
   return reverseStr === lowRegStr;
@@ -89,6 +90,7 @@ function palindrome(str){
 //find the longest word
 function findLongestWord(str) {
   var arrayStr = str.split(' ');
+  //The sort() method sorts the elements of an array and returns the array
   var longWrd = arrayStr.sort(function(a, b){
     return b.length - a.length;
   });
@@ -98,15 +100,16 @@ findLongestWord("The quick brown fox jumped over the lazy dog");
 
 // Title case a sentence
 function titleCase(str) {
-
+    //The map() method creates a new array with the results of calling a provided function on every element in the calling array.
    return str.toLowerCase().split(" ").map(function(word) {
+    //The replace() method returns a new string with some or all matches of a pattern replaced by a replacement.
     return word.replace(word[0], word[0].toUpperCase());
 }).join(" ");
   }
 titleCase("the path of the righteous man is beset");
 
 
-//Repeat a string repeat a string
+//Repeat a string
 function repeatStringNumTimes(str, num){
     var strRpt = '';
 
@@ -118,7 +121,7 @@ function repeatStringNumTimes(str, num){
 }
 repeatStringNumTimes("abc", 3);
 
-//recursively
+//using recursion
 
 function repeatStringNumTimes(str, num){
     if (num-1 < 0){
@@ -159,13 +162,13 @@ truncateString("A-tisket a-tasket A green and yellow basket", 11);
 //Chunky Monkey
 function chunkArrayInGroups(arr, size) {
  var newArr = [];
-
+//i+= size sets the size of the new array
   for(var i=0; i<arr.length; i+=size){
+    //The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.  
     newArr.push(arr.slice(i, i+size));
   }
   return newArr;
 }
-
 chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
 //Slasher Flick
