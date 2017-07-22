@@ -39,6 +39,7 @@ function factorialize(num) {
   if (num === 0)
     return 1;
   else
+  //recursion
     return(num * factorialize(num-1));
 }
 factorialize(5);
@@ -59,6 +60,7 @@ factorialize(6);
 
 //check for palindromes
 function palindrome(str) {
+    //regular expression matches any non-word character. Equivalent to [^A-Za-z0-9_].
   var re = /[\W_]/g;
   var lowRegStr = str.toLowerCase().replace(re, '');
   var reverseStr = lowRegStr.split('').reverse().join('');
@@ -68,11 +70,12 @@ palindrome("eye");
 
 //check for palindromes using for  loop
 function palindrome(str){
+        //regular expression matches any non-word character. Equivalent to [^A-Za-z0-9_].
 	  var strRe = /[\W_]/g;
 
 	  str = str.toLowerCase().replace(strRe, "");
 
-  for(var i = 0;  i < str.length/2; i++){
+  for(var i = 0;  i < str.length; i++){
 
 	    if(str[i] !== str[str.length-1-i]){
 	      return false;
