@@ -164,7 +164,7 @@ function chunkArrayInGroups(arr, size) {
  var newArr = [];
 //i+= size sets the size of the new array
   for(var i=0; i<arr.length; i+=size){
-    //The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.  
+    //The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.
     newArr.push(arr.slice(i, i+size));
   }
   return newArr;
@@ -200,7 +200,7 @@ mutation(["hello", "hey"]);
 
 //Falsy Bouncer
 function bouncer(arr) {
-
+   //The filter() method creates a new array with all elements that pass the test implemented by the provided function.
   return arr.filter(function(item){
 
       return item;
