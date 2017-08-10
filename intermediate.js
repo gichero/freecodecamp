@@ -327,42 +327,49 @@ isTriangle(3, 3, 4);
 }
 
 //sides of a triangle 3 using conditionals refactored
-function isNumber(side) {
+function triangleType(side1, side2, side3) {
+    if(isNotNumber(side1) || isNotNumber(side2) || isNotNumber(side3)) {
+        throw new TypeError("Side(s) is not a number");
+    }
+
+    if(isValid(side1) || isValid(side2) || isValid(side3)) {
+        throw new TypeError("Side cannot be 0 or less")
+    }
+
+    if(triangleInequality(side1, side2, side3)) {
+        throw new TypeError("Triangle inequality error");
+    }
+
+    if (isEquilateral(side1, side2, side3)) {
+        return "Equilateral triangle";
+    }
+
+    if(isIsosceles(side1, side2, side3)) {
+        return "Isosceles triangle";
+    } else {
+        return "Scalene triangle";
+    }
+}
+
+function isNotNumber(side) {
     return typeof side !== 'number';
 }
-function isValid(side){
+
+function isValid(side) {
     return side <= 0;
 }
-function triangleInequality(side1, side2, side3){
+
+function triangleInequality(side1, side2, side3) {
     return side1 + side2 <= side3 || side2 + side3 <= side1 || side3 + side1 <= side2;
 }
-function isEquilateral(side1, side2, side3){
+
+function isEquilateral(side1, side2, side3) {
     return side1 === side2 && side2 === side3;
 }
-function isIsosceles(side1, side2, side3){
+
+function isIsosceles(side1, side2, side3) {
     return side1 === side2 || side1 === side3 || side2 === side3;
 }
-
-function isTriangle(side1, side2, side3){
-
-    if(isNumber(side1) || isNumber(side2) || isNumber(side3)) throw new TypeError("Not a number");
-
-    if(isValid(side1) || isValid(side2) || isValid(side3)) throw new TypeError("Side cannot be 0 or less")
-
-    if(triangleInequality(side1, side2, side3)) throw new TypeError("Triangle inequality error");
-
-    if (isEquilateral(side1, side2, side3)){
-    return "Equilateral";
-    }
-    if(isIsosceles(side1, side2, side3)){
-      return "Isosceles";
-      }
-      else{
-        return "Scalene";
-        }
-  }
-//test
-isTriangle(3,4,4);
 
 //Selling stock to make a profit
 function getMaxProfit(arr) {
