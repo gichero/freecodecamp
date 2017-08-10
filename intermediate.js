@@ -327,12 +327,6 @@ isTriangle(3, 3, 4);
 }
 
 //sides of a triangle 3 using conditionals refactored
-function isEquilateral(side1, side2, side3){
-    return side1 === side2 && side2 === side3;
-}
-function isIsosceles(side1, side2, side3){
-    return side1 === side2 || side1 === side3 || side2 === side3;
-}
 function isNumber(side) {
     return typeof side !== 'number';
 }
@@ -341,6 +335,12 @@ function isValid(side){
 }
 function triangleInequality(side1, side2, side3){
     return side1 + side2 <= side3 || side2 + side3 <= side1 || side3 + side1 <= side2;
+}
+function isEquilateral(side1, side2, side3){
+    return side1 === side2 && side2 === side3;
+}
+function isIsosceles(side1, side2, side3){
+    return side1 === side2 || side1 === side3 || side2 === side3;
 }
 
 function isTriangle(side1, side2, side3){
@@ -363,7 +363,6 @@ function isTriangle(side1, side2, side3){
   }
 //test
 isTriangle(3,4,4);
-
 
 //Selling stock to make a profit
 function getMaxProfit(arr) {

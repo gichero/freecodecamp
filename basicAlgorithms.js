@@ -40,7 +40,7 @@ function factorialize(num) {
     return 1;
   else
   //recursion
-    return(num * factorialize(num-1));
+    return (num * factorialize(num-1));
 }
 factorialize(5);
 
