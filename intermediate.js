@@ -43,6 +43,27 @@ function diffArr(arr1, arr2){
 }
 convertToRoman(99);
 
+//Convert to Roman Numerals use map function
+function convertToRoman(num) {
+
+  var romanNumerals = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ],
+    decimals = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+
+
+  var romanized = "";
+
+  decimals.map(function(decimal, i) {
+      while (num >= decimal) {
+        romanized += romanNumerals[i];
+        num -= decimal;
+      }
+  });
+
+ return romanized;
+}
+
+convertToRoman(36);
+
 
  //Wherefore art thou
 function whatIsInAName(collection, source) {
