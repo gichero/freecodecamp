@@ -64,6 +64,47 @@ function convertToRoman(num) {
 
 convertToRoman(36);
 
+//Conver to Roman Numerals a single data structures
+function convertToRoman(num) {
+  
+  var map = [
+    { decimals:1, romanNumerals:'I' },
+    { decimals:4, romanNumerals:'IV' },
+    { decimals:5, romanNumerals:'V' },
+    { decimals:9, romanNumerals:'IX' },
+    { decimals:10, romanNumerals:'X' },
+    { decimals:40, romanNumerals:'XL' },
+    { decimals:50, romanNumerals:'L' },
+    { decimals:90, romanNumerals:'XC' },
+    { decimals:100, romanNumerals:'C' },
+    { decimals:400, romanNumerals:'CD' },
+    { decimals:500, romanNumerals:'D' },
+    { decimals:900, romanNumerals:'CM' },
+    { decimals:1000, romanNumerals:'M' }
+  ];
+
+  var romanized = '';
+
+  while (num > 0) {
+
+    var max = map[0];
+
+    map.forEach(function(i) {
+      if (i.decimals <= num) {
+        max = i;
+      }
+    });
+
+    romanized += max.romanNumerals;
+    num -= max.decimals;
+
+  }
+
+  return romanized;
+}
+
+convertToRoman(6);
+
 
  //Wherefore art thou
 function whatIsInAName(collection, source) {
