@@ -12,7 +12,10 @@ function checkCashRegister(price, cash, cashInDrawer){
         {name: 'fifty', value: 50.00},
         {name: 'hundred', value: 100.00}
     ];
-    let change;
+    let change = cash - price;
+    let register = cashInDrawer.reduce((a,b)=>{
+        return a + b[1];
+    }, 0.0).toFixed(2);
 
     return change;
 }
