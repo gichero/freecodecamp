@@ -13,9 +13,16 @@ function checkCashRegister(price, cash, cashInDrawer){
         {name: 'hundred', value: 100.00}
     ];
     let change = cash - price;
-    let register = cashInDrawer.reduce((a,b)=>{
-        return a + b[1];
+
+    let register = cashInDrawer.reduce((accumulator, nextValue)=>{
+        return accumulator + nextValue[1];
     }, 0.0).toFixed(2);
+
+    if(register < change){
+        return 'Insufficient Funds';
+    }else if(register === change){
+        return 'Closed';
+    }
 
     return change;
 }
