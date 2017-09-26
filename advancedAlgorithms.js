@@ -24,7 +24,27 @@ function checkCashRegister(price, cash, cashInDrawer){
         return 'Closed';
     }
 
-    return change;
+    let newArr = currency.reduce((acc, item, index)=>{
+        if(change >= item.value){
+            let currentValue = 0.0;
+            while(change >= item.value && cashInDrawer[index][1] >= item.value){
+                currentValue += nextValue;
+                change -= item.value;
+                change = Math.round(change*100)/100;
+                cashInDrawer[index][1] -= item.value;
+            }
+            acc.push([item.name], currentValue);
+            return acc;
+        }else{
+            return acc;
+        }
+    },[]);
+
+    if(newArr.length > 0 && change === 0){
+        return newArr;
+    }else{
+        return 'Insufficient Funds';
+    }
 }
 
 checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
