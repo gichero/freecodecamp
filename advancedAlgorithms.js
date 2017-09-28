@@ -37,7 +37,7 @@ function checkCashRegister(price, cash, cashInDrawer){
                     change = Math.round(change * 100) / 100;
                     cashInDrawer[index][1] -= next.value;
                 }
-                acc.push([next.name, currentValue]);
+                acc.push([cashInDrawer[index][0], currentValue]);
                 return acc;
             } else {
                 return acc;
